@@ -1,0 +1,73 @@
+﻿@model IEnumerable<CakeMaker_v4.Cake>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a href="http://localhost:56479/AdminCake/Index">View Cake</a>
+    <a href="http://localhost:56479/AdminCustomer/Index">View Customer</a>
+    <a href="http://localhost:56479/AdminOrder/Index">View Order</a>
+    <a href="http://localhost:56479/AdminOrderDetail/Index">View OrderDetail</a>
+</p>
+
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.cakeName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cakeDescription)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cakeImg)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cakeType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cakeQuantity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cakePrice)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.cakeName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.cakeDescription)
+            </td>
+            <td>
+                @*@Html.DisplayFor(modelItem => item.cakeImg)*@
+                <img src="@Html.DisplayFor(modelItem => item.cakeImg)" width="200" height="150">
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.cakeType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.cakeQuantity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.cakePrice)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.cakeID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.cakeID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.cakeID })
+            </td>
+        </tr>
+    }
+
+</table>

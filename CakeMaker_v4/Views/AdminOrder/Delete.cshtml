@@ -1,0 +1,64 @@
+﻿@model CakeMaker_v4.Order
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Order</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.odID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.odID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.orderDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.orderDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.totalPrice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.totalPrice)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Customer.cusName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Customer.cusName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OrderDetail.odID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OrderDetail.odID)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

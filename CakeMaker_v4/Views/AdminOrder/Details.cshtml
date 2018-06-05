@@ -1,0 +1,58 @@
+﻿@model CakeMaker_v4.Order
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Order</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.odID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.odID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.orderDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.orderDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.totalPrice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.totalPrice)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Customer.cusName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Customer.cusName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OrderDetail.odID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OrderDetail.odID)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.orderID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

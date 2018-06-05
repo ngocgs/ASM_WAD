@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CakeMakerModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Cake">
+    <Key>
+      <PropertyRef Name="cakeID" />
+    </Key>
+    <Property Name="cakeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="cakeName" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="cakeDescription" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="cakeImg" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="cakeType" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="cakeQuantity" Type="int" Nullable="false" />
+    <Property Name="cakePrice" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="cusID" />
+    </Key>
+    <Property Name="cusID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="cusName" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="cusPhone" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="cusEmail" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="cusAddress" Type="nvarchar" MaxLength="200" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Order">
+    <Key>
+      <PropertyRef Name="orderID" />
+    </Key>
+    <Property Name="orderID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="cusID" Type="int" Nullable="false" />
+    <Property Name="odID" Type="int" Nullable="false" />
+    <Property Name="orderDate" Type="datetime" Nullable="false" />
+    <Property Name="totalPrice" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="OrderDetail">
+    <Key>
+      <PropertyRef Name="odID" />
+    </Key>
+    <Property Name="odID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="cakeID" Type="int" Nullable="false" />
+    <Property Name="cakeQuatity" Type="int" Nullable="false" />
+    <Property Name="cakePrice" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <Association Name="FK_Order_Customer">
+    <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+    <End Role="Order" Type="Self.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="cusID" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="cusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Order_OrderDetail">
+    <End Role="OrderDetail" Type="Self.OrderDetail" Multiplicity="1" />
+    <End Role="Order" Type="Self.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OrderDetail">
+        <PropertyRef Name="odID" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="cusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OrderDetail_Cake">
+    <End Role="Cake" Type="Self.Cake" Multiplicity="1" />
+    <End Role="OrderDetail" Type="Self.OrderDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cake">
+        <PropertyRef Name="cakeID" />
+      </Principal>
+      <Dependent Role="OrderDetail">
+        <PropertyRef Name="cakeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="CakeMakerModelStoreContainer">
+    <EntitySet Name="Cake" EntityType="Self.Cake" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Order" EntityType="Self.Order" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OrderDetail" EntityType="Self.OrderDetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Order_Customer" Association="Self.FK_Order_Customer">
+      <End Role="Customer" EntitySet="Customer" />
+      <End Role="Order" EntitySet="Order" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Order_OrderDetail" Association="Self.FK_Order_OrderDetail">
+      <End Role="OrderDetail" EntitySet="OrderDetail" />
+      <End Role="Order" EntitySet="Order" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrderDetail_Cake" Association="Self.FK_OrderDetail_Cake">
+      <End Role="Cake" EntitySet="Cake" />
+      <End Role="OrderDetail" EntitySet="OrderDetail" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

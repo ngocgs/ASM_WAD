@@ -1,0 +1,72 @@
+﻿@model CakeMaker_v4.Cake
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Cake</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.cakeName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cakeName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cakeDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cakeDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cakeImg)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cakeImg)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cakeType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cakeType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cakeQuantity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cakeQuantity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cakePrice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cakePrice)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

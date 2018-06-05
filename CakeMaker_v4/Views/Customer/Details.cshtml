@@ -1,0 +1,68 @@
+﻿@model CakeMaker_v4.Cake
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Cake</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.cakeName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cakeName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cakeDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cakeDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cakeImg)
+        </dt>
+
+        <dd>
+            <img src="@Html.DisplayFor(model => model.cakeImg)" width="200" height="150">
+            @*@Html.DisplayFor(model => model.cakeImg)*@
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cakeType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cakeType)
+        </dd>
+
+        @*<dt>
+            @Html.DisplayNameFor(model => model.cakeQuantity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cakeQuantity)
+        </dd>*@
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cakePrice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cakePrice)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @*@Html.ActionLink("Edit", "Edit", new { id = Model.cakeID }) |*@
+    @Html.ActionLink("Dat banh", "Create") |
+    @Html.ActionLink("Back to List", "Index")
+</p>

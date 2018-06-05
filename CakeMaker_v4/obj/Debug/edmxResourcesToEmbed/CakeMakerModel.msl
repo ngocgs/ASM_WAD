@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="CakeMakerModelStoreContainer" CdmEntityContainer="CakeMakerContext">
+    <EntitySetMapping Name="Cakes">
+      <EntityTypeMapping TypeName="CakeMakerModel.Cake">
+        <MappingFragment StoreEntitySet="Cake">
+          <ScalarProperty Name="cakeID" ColumnName="cakeID" />
+          <ScalarProperty Name="cakeName" ColumnName="cakeName" />
+          <ScalarProperty Name="cakeDescription" ColumnName="cakeDescription" />
+          <ScalarProperty Name="cakeImg" ColumnName="cakeImg" />
+          <ScalarProperty Name="cakeType" ColumnName="cakeType" />
+          <ScalarProperty Name="cakeQuantity" ColumnName="cakeQuantity" />
+          <ScalarProperty Name="cakePrice" ColumnName="cakePrice" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Customers">
+      <EntityTypeMapping TypeName="CakeMakerModel.Customer">
+        <MappingFragment StoreEntitySet="Customer">
+          <ScalarProperty Name="cusID" ColumnName="cusID" />
+          <ScalarProperty Name="cusName" ColumnName="cusName" />
+          <ScalarProperty Name="cusPhone" ColumnName="cusPhone" />
+          <ScalarProperty Name="cusEmail" ColumnName="cusEmail" />
+          <ScalarProperty Name="cusAddress" ColumnName="cusAddress" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Orders">
+      <EntityTypeMapping TypeName="CakeMakerModel.Order">
+        <MappingFragment StoreEntitySet="Order">
+          <ScalarProperty Name="orderID" ColumnName="orderID" />
+          <ScalarProperty Name="cusID" ColumnName="cusID" />
+          <ScalarProperty Name="odID" ColumnName="odID" />
+          <ScalarProperty Name="orderDate" ColumnName="orderDate" />
+          <ScalarProperty Name="totalPrice" ColumnName="totalPrice" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OrderDetails">
+      <EntityTypeMapping TypeName="CakeMakerModel.OrderDetail">
+        <MappingFragment StoreEntitySet="OrderDetail">
+          <ScalarProperty Name="odID" ColumnName="odID" />
+          <ScalarProperty Name="cakeID" ColumnName="cakeID" />
+          <ScalarProperty Name="cakeQuatity" ColumnName="cakeQuatity" />
+          <ScalarProperty Name="cakePrice" ColumnName="cakePrice" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="CakeMakerModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

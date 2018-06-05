@@ -1,0 +1,42 @@
+﻿@model CakeMaker_v4.OrderDetail
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>OrderDetail</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.cakeQuatity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cakeQuatity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cakePrice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cakePrice)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cake.cakeName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cake.cakeName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.odID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

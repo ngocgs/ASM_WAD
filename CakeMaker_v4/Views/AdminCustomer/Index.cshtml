@@ -1,0 +1,58 @@
+﻿@model IEnumerable<CakeMaker_v4.Customer>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a href="http://localhost:56479/AdminCake/Index">View Cake</a>
+    <a href="http://localhost:56479/AdminCustomer/Index">View Customer</a>
+    <a href="http://localhost:56479/AdminOrder/Index">View Order</a>
+    <a href="http://localhost:56479/AdminOrderDetail/Index">View OrderDetail</a>
+</p>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.cusName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cusPhone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cusEmail)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cusAddress)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.cusName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.cusPhone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.cusEmail)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.cusAddress)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.cusID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.cusID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.cusID })
+        </td>
+    </tr>
+}
+
+</table>

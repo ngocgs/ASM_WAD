@@ -1,0 +1,52 @@
+﻿@model IEnumerable<CakeMaker_v4.OrderDetail>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a href="http://localhost:56479/AdminCake/Index">View Cake</a>
+    <a href="http://localhost:56479/AdminCustomer/Index">View Customer</a>
+    <a href="http://localhost:56479/AdminOrder/Index">View Order</a>
+    <a href="http://localhost:56479/AdminOrderDetail/Index">View OrderDetail</a>
+</p>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.cakeQuatity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cakePrice)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cake.cakeName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.cakeQuatity)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.cakePrice)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cake.cakeName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.odID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.odID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.odID })
+        </td>
+    </tr>
+}
+
+</table>
